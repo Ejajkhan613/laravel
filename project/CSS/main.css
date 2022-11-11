@@ -6,8 +6,6 @@ body {
 }
 
 
-
-
 /* About Us */
 .aboutusMain {
     width: fit-content;
@@ -83,15 +81,12 @@ a:hover {
     height: fit-content;
     margin: auto;
     background-color: white;
+    /* position: fixed; */
     margin-top: 10px;
     padding: 20px 0px;
     display: flex;
     justify-content: space-between;
-    width: 100%;
-}
-#bottomNav {
-    /* position: fixed; */
-    top: 0;
+    width: 80%;
 }
 
 #navleft {
@@ -926,13 +921,6 @@ hr {
         grid-template-rows: auto;
         row-gap: 20px;
         width: 99%;
-    }
-    #softwareCont {
-        width: 70%;
-        top: 200px;
-    }
-    #softwareCont > button {
-        margin-bottom: 10px;
     }
 
     #navtxt>a {

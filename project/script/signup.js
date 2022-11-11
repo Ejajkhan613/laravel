@@ -20,7 +20,7 @@ setInterval(check, 1500);
 
 // Logo click Index page Functionality
 let logo = document.querySelector("#logo > img");
-logo.addEventListener("click", function (){
+logo.addEventListener("click", function () {
     window.location.href = "/project/index.html";
 })
 
@@ -41,7 +41,25 @@ form.addEventListener("submit", function (el) {
 
     // If Inputs are empty Alerting the User
     if (firstName.value == "" || LastName.value == "" || email.value == "" || password.value == "") {
-        alert("Please fill all the Details");
+        let div = document.createElement("div");
+            div.style.backgroundColor = "red";
+            let h2 = document.createElement("h2");
+            h2.innerText = "Please fill all the Details";
+            h2.style.color = "white";
+            div.style.width = "fit-content";
+            div.style.height = "fit-content";
+            div.style.padding = "10px 30px";
+            div.style.margin = "auto"
+            h2.style.fontSize = "16px";
+            h2.style.margin = "0px 0px"
+
+            div.append(h2);
+            document.querySelector("#popup").append(div);
+            function showPopup() {
+                document.querySelector("#popup").innerHTML = "";
+            }
+
+            setTimeout(showPopup, 3000);
     } else {
         // Checking if Email is already Registered or Not
         let flag = "false";
@@ -51,54 +69,89 @@ form.addEventListener("submit", function (el) {
                 break;
             }
         }
-        // If email is already Registered the Alerting the User
+        // If email is already Registered then Alerting the User
         if (flag == "true") {
-            alert("This email is already Registered");
-        } else {
-
-            // If email is not Registered then Successfully Registering
-            let obj = {
-                firstName: firstName.value,
-                LastName: LastName.value,
-                email: email.value,
-                password: password.value
-            }
-
-            storeData.push(obj)
-            localStorage.setItem("data", JSON.stringify(storeData));
-
             let div = document.createElement("div");
-            div.style.backgroundColor = "rgb(11, 199, 199)";
+            div.style.backgroundColor = "red";
+            let h2 = document.createElement("h2");
+            h2.innerText = "Your Email is already Registered";
+            h2.style.color = "white";
             div.style.width = "fit-content";
             div.style.height = "fit-content";
             div.style.padding = "10px 30px";
             div.style.margin = "auto"
-
-
-            let h2 = document.createElement("h2");
-            h2.innerText = "Details saved  Please Login!";
-            h2.style.color = "white";
             h2.style.fontSize = "16px";
             h2.style.margin = "0px 0px"
 
             div.append(h2);
             document.querySelector("#popup").append(div);
+            function showPopup() {
+                document.querySelector("#popup").innerHTML = "";
+            }
 
+            setTimeout(showPopup, 3000);
+        } else {
+            if (password.value.length >= 6) {
+                // If email is not Registered then Successfully Registering
+                let obj = {
+                    firstName: firstName.value,
+                    LastName: LastName.value,
+                    email: email.value,
+                    password: password.value
+                }
+
+                storeData.push(obj)
+                localStorage.setItem("data", JSON.stringify(storeData));
+
+                let div = document.createElement("div");
+                div.style.backgroundColor = "rgb(11, 199, 199)";
+                div.style.width = "fit-content";
+                div.style.height = "fit-content";
+                div.style.padding = "10px 30px";
+                div.style.margin = "auto"
+                let h2 = document.createElement("h2");
+                h2.innerText = "Details saved  Please Login!";
+                h2.style.color = "white";
+                h2.style.fontSize = "16px";
+                h2.style.margin = "0px 0px"
+
+                div.append(h2);
+                document.querySelector("#popup").append(div);
+
+
+                firstName = document.querySelector("#FirstName").value = "";
+                LastName = document.querySelector("#LastName").value = "";
+                email = document.querySelector("#email").value = "";
+                password = document.querySelector("#password").value = "";
+
+                function showPopup() {
+                    document.querySelector("#popup").innerHTML = "";
+                    window.location.href = "/project/login.html";
+                }
+
+                setTimeout(showPopup, 4000);
+            } else {
+                let div = document.createElement("div");
+                div.style.backgroundColor = "red";
+                let h2 = document.createElement("h2");
+                h2.innerText = "Password length should be more then 5";
+                h2.style.color = "white";
+                div.style.width = "fit-content";
+                div.style.height = "fit-content";
+                div.style.padding = "10px 30px";
+                div.style.margin = "auto"
+                h2.style.fontSize = "16px";
+                h2.style.margin = "0px 0px"
+
+                div.append(h2);
+                document.querySelector("#popup").append(div);
+                function showPopup() {
+                    document.querySelector("#popup").innerHTML = "";
+                }
+
+                setTimeout(showPopup, 3000);
+            }
         }
-
-        firstName = document.querySelector("#FirstName").value = "";
-        LastName = document.querySelector("#LastName").value = "";
-        email = document.querySelector("#email").value = "";
-        password = document.querySelector("#password").value = "";
-
-        function showPopup() {
-            document.querySelector("#popup").innerHTML = "";
-            window.location.href = "/project/login.html";
-        }
-
-        setTimeout(showPopup, 4000);
-
-
     }
 
 

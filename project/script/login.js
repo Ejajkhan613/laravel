@@ -37,7 +37,7 @@ form.addEventListener("submit", function (el) {
 
         function showPopup() {
             document.querySelector("#popup").innerHTML = "";
-            window.location.href = "/project/index.html";
+            window.location.href = "/project/main.html";
         }
 
         setTimeout(showPopup, 2000);
