@@ -34,6 +34,7 @@ form.addEventListener("submit", function (el) {
 
         div.append(h2);
         document.querySelector("#popup").append(div);
+        document.querySelector("form").reset();
 
         function showPopup() {
             document.querySelector("#popup").innerHTML = "";

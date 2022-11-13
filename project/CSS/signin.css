@@ -44,8 +44,26 @@ nav {
 
 /* Popup */
 #popup {
-    margin: auto;
-    width: 100%;padding: 0px;
+    width: 100%;
+    height: fit-content;
+    position: fixed;
+    display: none;
+    background-color: red;
+}
+#popup > h2 {
+    color: white;
+    text-align: center;
+}
+#successful {
+    width: 100%;
+    height: fit-content;
+    position: fixed;
+    display: none;
+    background-color: #008000;
+}
+#successful > h2 {
+    color: white;
+    text-align: center;
 }
 
 

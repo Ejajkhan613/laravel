@@ -18,11 +18,17 @@ function check() {
 setInterval(check, 1500);
 
 
+
+
+
 // Logo click Index page Functionality
 let logo = document.querySelector("#logo > img");
 logo.addEventListener("click", function () {
     window.location.href = "/project/index.html";
 })
+
+
+
 
 
 
@@ -41,25 +47,16 @@ form.addEventListener("submit", function (el) {
 
     // If Inputs are empty Alerting the User
     if (firstName.value == "" || LastName.value == "" || email.value == "" || password.value == "") {
-        let div = document.createElement("div");
-            div.style.backgroundColor = "red";
-            let h2 = document.createElement("h2");
-            h2.innerText = "Please fill all the Details";
-            h2.style.color = "white";
-            div.style.width = "fit-content";
-            div.style.height = "fit-content";
-            div.style.padding = "10px 30px";
-            div.style.margin = "auto"
-            h2.style.fontSize = "16px";
-            h2.style.margin = "0px 0px"
+        document.querySelector("#popup").style.display = "block"
+        let h2 = document.querySelector("#popup > h2");
+        h2.innerText = "Please fill all the Details";
 
-            div.append(h2);
-            document.querySelector("#popup").append(div);
-            function showPopup() {
-                document.querySelector("#popup").innerHTML = "";
-            }
+        function showPopup() {
+            document.querySelector("#popup > h2").innerText = "";
+            document.querySelector("#popup").style.display = "none"
+        }
 
-            setTimeout(showPopup, 3000);
+        setTimeout(showPopup, 3000);
     } else {
         // Checking if Email is already Registered or Not
         let flag = "false";
@@ -71,22 +68,16 @@ form.addEventListener("submit", function (el) {
         }
         // If email is already Registered then Alerting the User
         if (flag == "true") {
-            let div = document.createElement("div");
-            div.style.backgroundColor = "red";
-            let h2 = document.createElement("h2");
+            document.querySelector("#popup").style.display = "block"
+            let h2 = document.querySelector("#popup > h2");
             h2.innerText = "Your Email is already Registered";
-            h2.style.color = "white";
-            div.style.width = "fit-content";
-            div.style.height = "fit-content";
-            div.style.padding = "10px 30px";
-            div.style.margin = "auto"
-            h2.style.fontSize = "16px";
-            h2.style.margin = "0px 0px"
 
-            div.append(h2);
-            document.querySelector("#popup").append(div);
+
+
+
             function showPopup() {
-                document.querySelector("#popup").innerHTML = "";
+                document.querySelector("#popup > h2").innerText = "";
+                document.querySelector("#popup").style.display = "none"
             }
 
             setTimeout(showPopup, 3000);
@@ -103,50 +94,33 @@ form.addEventListener("submit", function (el) {
                 storeData.push(obj)
                 localStorage.setItem("data", JSON.stringify(storeData));
 
-                let div = document.createElement("div");
-                div.style.backgroundColor = "rgb(11, 199, 199)";
-                div.style.width = "fit-content";
-                div.style.height = "fit-content";
-                div.style.padding = "10px 30px";
-                div.style.margin = "auto"
-                let h2 = document.createElement("h2");
+                let div = document.querySelector("#successful").style.display = "block";
+                let h2 = document.querySelector("#successful > h2");
                 h2.innerText = "Details saved  Please Login!";
-                h2.style.color = "white";
-                h2.style.fontSize = "16px";
-                h2.style.margin = "0px 0px"
 
-                div.append(h2);
-                document.querySelector("#popup").append(div);
-
-
-                firstName = document.querySelector("#FirstName").value = "";
-                LastName = document.querySelector("#LastName").value = "";
-                email = document.querySelector("#email").value = "";
-                password = document.querySelector("#password").value = "";
 
                 function showPopup() {
-                    document.querySelector("#popup").innerHTML = "";
+                    let div = document.querySelector("#successful");
+                    document.querySelector("#successful > h2").innerText = "";
+                    div.style.display = "none";
+                    document.querySelector("form").reset();
                     window.location.href = "/project/login.html";
                 }
 
                 setTimeout(showPopup, 4000);
-            } else {
-                let div = document.createElement("div");
-                div.style.backgroundColor = "red";
-                let h2 = document.createElement("h2");
-                h2.innerText = "Password length should be more then 5";
-                h2.style.color = "white";
-                div.style.width = "fit-content";
-                div.style.height = "fit-content";
-                div.style.padding = "10px 30px";
-                div.style.margin = "auto"
-                h2.style.fontSize = "16px";
-                h2.style.margin = "0px 0px"
 
-                div.append(h2);
-                document.querySelector("#popup").append(div);
+            } else {
+                document.querySelector("#popup").style.display = "block";
+                let h2 = document.querySelector("#popup > h2");
+
+                h2.innerText = "Password length should be more then 5";
+
+
+
                 function showPopup() {
-                    document.querySelector("#popup").innerHTML = "";
+                    document.querySelector("#popup > h2").innerText = "";
+                    let div = document.querySelector("#popup");
+                    div.style.display = "none";
                 }
 
                 setTimeout(showPopup, 3000);
