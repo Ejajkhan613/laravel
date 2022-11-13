@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login page</title>
+    <link rel="stylesheet" href="/project/CSS/login.css" />
+  </head>
+  <body>
+    <div id="popup">
+      <!-- Show Login Succesful -->
+      <h2></h2>
+    </div>
+
+    <div id="cont">
+      <div id="logo">
+        <img src="/project/images/laravel (3).png" alt="Logo" />
+        <p>Don't have an account? <a href="/project/signup.html">Sign up</a></p>
+      </div>
+
+      <form action="#">
+        <label for="email">Email address</label>
+        <input type="email" name="email" id="email" />
+        <label for="password">Password</label>
+        <p id="showPass">Show Password</p>
+        <input type="password" name="password" id="password" />
+        <p id="forgetPass">Forgot my password</p>
+        <br />
+        <br />
+        <input type="submit" name="submit" id="submit" value="Log in" />
+      </form>
+
+      <hr />
+
+      <div id="google">
+        <div>
+          <img src="/project/images/Screenshot_50.jpg" alt="google-logo" />
+        </div>
+        <div id="span">
+          <span>Sign in with Google</span>
+        </div>
+      </div>
+      <div id="sso">
+        <p>Log in with SSO</p>
+      </div>
+
+      <div id="footer">
+        <p>©2022 Laravel, Inc. All Rights Reserved.</p>
+        <a href="#">Privacy Policy</a>
+      </div>
+    </div>
+    <script src="/project/script/login.js"></script>
+  </body>
+</html>
